@@ -1,0 +1,193 @@
+# File name: ocsb.kv
+#:kivy 1.11.1
+
+<OnlineCourseSkipBot>:
+    id: main_window
+    orientation: 'vertical'
+    padding: 20
+    spacing: 10
+    canvas.before:
+        Color:
+            rgba: (0,0,0,1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    AnchorLayout:
+        size_hint: 1, .15
+        anchor_x: "right"
+        anchor_y: "top"
+        Spinner:
+            text: "Options"
+            values: "Help", "Logout", "Exit"
+            size_hint: (None, None)
+            size: (150, 40)    
+    Label:
+        id: head_info
+        padding: (5,5)
+        spacing: 10
+        font_size: '42sp'
+        text: "Alison [color=ff3333]Skip[/color] [color=3333ff][b] Bot OCSB[/b][/color]"
+        markup: True
+        size_hint: 1, .2
+    Label:
+        size_hint: 1, None
+        height: 50
+
+    BoxLayout:        
+        orientation: 'vertical'
+        #padding: 5
+        #spacing: 5
+        BoxLayout:
+            orientation: 'horizontal'        
+            Label:
+                text: "Username"
+                bold: True
+                #font_name: "data/fonts/RobotoMono-Regular.ttf"
+                font_size: 18
+                size_hint_x: .3
+                size_hint_y: None
+                height: (30)
+                halign: 'left'
+                valign: 'middle'
+            TextInput:
+                id: username
+                hint_text: "Your Username/ email"
+                multiline: False
+                size_hint_x: .6
+                size_hint_y: None
+                height: (30)
+                on_on_text_validate: password.focus = True 
+       
+        BoxLayout:
+            orientation: 'horizontal'        
+            Label:
+                text: "Password"
+                bold: True
+                #font_name: "data/fonts/RobotoMono-Regular.ttf"
+                font_size: 18
+                size_hint_x: .3
+                size_hint_y: None
+                height: (30)
+                halign: 'left'
+                valign: 'middle'
+            TextInput:
+                id: password         
+                password: True       
+                hint_text: "Your password"
+                multiline: False
+                size_hint_x: .6
+                size_hint_y: None
+                height: (30)
+                on_text_validate: link.focus = True
+                
+        BoxLayout:
+            orientation: 'horizontal'        
+            Label:
+                text: "Course link"
+                bold: True
+                #font_name: "data/fonts/RobotoMono-Regular.ttf"
+                font_size: 18
+                size_hint_x: .3
+                size_hint_y: None
+                height: (30)
+                halign: 'left'
+                valign: 'middle'                
+            TextInput:
+                id: link
+                hint_text: "Ex. https://alison.com/course/microsoft-access-2013"
+                italic: True
+                multiline: False
+                size_hint_x: .6
+                size_hint_y: None
+                height: (30)            
+                on_text_validate: root.validate_and_run()
+    BoxLayout:
+        orientation: 'horizontal'             
+
+    BoxLayout:            
+        orientation: 'vertical'    
+        size_hint: 1, .5
+        padding: 10
+        spacing: 10
+        BoxLayout:
+            orientation: 'horizontal'  
+            Label: 
+                text: "Login Using Social Account Instead?"
+        BoxLayout:
+            orientation: 'horizontal'   
+            size_hint: None, None
+            size: (120, 30)  
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint: None, None
+                size: (5, 30)                     
+                CheckBox:
+                    id: google                    
+                    group: "social_acc"
+                    active: False
+            BoxLayout:
+                orientation: 'horizontal'
+                Label:                
+                    text: "[color=3498db]Google[/color]"
+                    bold: True
+                    halign: 'center'
+                    valign: 'middle'
+                    markup: True
+        BoxLayout:
+            orientation: 'horizontal'   
+            size_hint: None, None
+            size: (120, 30)  
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint: None, None
+                size: (5, 30)            
+                CheckBox:
+                    id: facebook
+                    group: "social_acc"
+                    active: False
+            BoxLayout:
+                orientation: 'horizontal'
+                Label:                
+                    text: "[color=3498db]Facebook[/color]"
+                    bold: True
+                    halign: 'center'
+                    valign: 'middle'
+                    markup: True
+        BoxLayout:
+            orientation: 'horizontal'   
+            size_hint: None, None
+            size: (120, 30)  
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint: None, None
+                size: (5, 30)                     
+                CheckBox:
+                    id: twitter
+                    group: "social_acc"
+                    active: False
+            BoxLayout:
+                orientation: 'horizontal'
+                Label:                
+                    text: "[color=3498db]Twitter[/color]"
+                    bold: True
+                    halign: 'center'
+                    valign: 'middle'
+                    markup: True
+    BoxLayout:
+        orientation: 'horizontal'   
+        padding: 5
+        spacing: 5
+        BoxLayout:
+            orientation: 'horizontal'
+            Button:
+                padding: (5,5)
+                text: "Start"                
+                size_hint: (None, None)
+                size: (150, 40) 
+                on_release: root.validate_and_run()
+        BoxLayout:
+            orientation: 'horizontal'       
+        
+        BoxLayout:
+            orientation: 'horizontal'
+          
