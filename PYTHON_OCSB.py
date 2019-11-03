@@ -1,6 +1,7 @@
 import time
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+#from main import OnlineCourseSkipBot
 
 courses = {
             #"ms2010_Rev_2018"    : "https://alison.com/courses/microsoft-office-2010-revised-2018/",
@@ -103,7 +104,7 @@ class Automator:
             try:            
                 self.driver.implicitly_wait(10)        
                 self.driver.find_element_by_xpath('//*[@id="player-page"]/div[2]/a[4]').click()
-            except Exception:
+            except Exception: 
                 pass
             
             
@@ -134,14 +135,18 @@ class Automator:
                 if next_topic:
                     driver.implicitly_wait(20)
                     self.driver.find_element_by_id("bottom_bar_next_topic").click()
+                    #OnlineCourseSkipBot.ids.bar += 2
                     time.sleep(5)
             except Exception:
                 start_topic_check = True
         
             try:
                 self.driver.find_element_by_xpath('//*[@id="top_button"]').click()
+                self.driver.find_element_by_link_text("Continue Learning").click()
             except Exception:
                 pass
+
+            
 
 
 #bot_obj = Automator("benedictaegbenya18@gmail.com","seyram", google_login_mode=False)
