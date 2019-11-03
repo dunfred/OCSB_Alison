@@ -1,15 +1,6 @@
 import time
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-#from main import OnlineCourseSkipBot
-
-courses = {
-            #"ms2010_Rev_2018"    : "https://alison.com/courses/microsoft-office-2010-revised-2018/",
-            "dip_in_DB_and_TSQL" : "https://alison.com/course/diploma-in-databases-and-t-sql-revised",
-            "ma2013_Advn_master" : "https://alison.com/course/microsoft-access-2013-advanced-master-databases",
-            "ma2013_begginers"   : "https://alison.com/course/microsoft-access-2013-for-beginners-start-your-database-journey",
-            "saylor_Into_to_MDS" : "https://learn.saylor.org/login/index.php",
-        }
 
 class Automator:
     def __init__(self, email, password, course_url, google_login_mode=False, *args, **kwargs):
@@ -146,19 +137,4 @@ class Automator:
             except Exception:
                 pass
 
-            
-
-
-#bot_obj = Automator("benedictaegbenya18@gmail.com","seyram", google_login_mode=False)
-#bot_obj = Automator("charleskp138@gmail.com","Itxcharlie@1", google_login_mode=False)       
-#bot_obj.goSkip()
-
-#print("End of program")
-
-
-
-
-
-#correctAnswers = questionsToDisplay; initializeFinish();
-#ScormProcessSetValue('cmi.core.lesson_ststus','completed');
-
+         
