@@ -44,6 +44,7 @@
                         text: "quit"
                         size_hint_y: None
                         height: 30
+                        on_release: root.exit()
         Label:
             text: "Admin Dashboard"
             bold: True
@@ -124,8 +125,7 @@
                 height: 30
 
             GridLayout:        
-                cols: 2
-                rows: 2
+                cols: 2                
                 #orientation: 'vertical'
                 padding: 5
                 spacing: 5
