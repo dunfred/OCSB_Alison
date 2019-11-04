@@ -1,3 +1,5 @@
+#Author: Dunyo Fred
+
 import kivy
 from kivy.config import Config
 Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
@@ -22,7 +24,6 @@ class OnlineCourseSkipBot(BoxLayout):
         print(f"username {username.text}")
         print(f"password {password.text}")
         print(f"course_link {course_link.text}")
-        print(f"info {info.text}")
         #Check if user wants to login using google account
         if self.ids.google.active == True:
             Google_mode = True
@@ -67,12 +68,9 @@ class OnlineCourseSkipBot(BoxLayout):
         else:
             try:
                 head_info.text = "[color=00ee00][u]Successfully Validated[/u][/color]"
-                runtime_object = Automator(username.text, password.text, course_link.text, google_login_mode=Google_mode)
-                runtime_object.goSkip()
+                runtime_object = Automator(username.text, password.text, course_link.text, google_login_mode=Google_mode).goSkip()
             except Exception as err:
                 head_info.text = f"[color=ff3333][u]Session Ended[/u][/color]"
-                #info.text = f"[color=ff3333][u]{err}[/u][/color]"
-                #info.font_size = 12
     
     def exit(self):
         #App.get_running_app.stop()
