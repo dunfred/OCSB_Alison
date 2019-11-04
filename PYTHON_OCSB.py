@@ -1,3 +1,6 @@
+#Author:        Dunyo Fred
+#Date Started:  11-02-2019
+
 import time
 import requests
 from selenium import webdriver
